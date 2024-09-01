@@ -1,0 +1,19 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`rollup > basic.js 1`] = `
+"// basic.js
+var basic = \`import '@rollup/pluginutils'
+import 'js-tokens'
+import 'pkg-types'
+import 'unplugin'
+\`;
+
+export { basic as default };
+"
+`;
+
+exports[`rollup > error.js 1`] = `[Error: Unused dependencies found: js-tokens]`;
+
+exports[`rollup > error-tsx.tsx 1`] = `[Error: Unused dependencies found: unplugin]`;
+
+exports[`rollup > error-vue.vue 1`] = `[Error: Unused dependencies found: @rollup/pluginutils, js-tokens, pkg-types]`;

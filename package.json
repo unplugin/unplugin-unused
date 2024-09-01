@@ -1,0 +1,115 @@
+{
+  "name": "unplugin-unused",
+  "version": "0.0.0",
+  "packageManager": "pnpm@9.8.0",
+  "description": "Check unused dependencies.",
+  "type": "module",
+  "keywords": [
+    "unplugin",
+    "rollup",
+    "vite",
+    "esbuild",
+    "webpack"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/unplugin/unplugin-unused#readme",
+  "bugs": {
+    "url": "https://github.com/unplugin/unplugin-unused/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/unplugin/unplugin-unused.git"
+  },
+  "author": "三咲智子 <sxzz@sxzz.moe>",
+  "funding": "https://github.com/sponsors/sxzz",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.js"
+    },
+    "./vite": {
+      "require": "./dist/vite.cjs",
+      "import": "./dist/vite.js"
+    },
+    "./webpack": {
+      "require": "./dist/webpack.cjs",
+      "import": "./dist/webpack.js"
+    },
+    "./rspack": {
+      "require": "./dist/rspack.cjs",
+      "import": "./dist/rspack.js"
+    },
+    "./rollup": {
+      "require": "./dist/rollup.cjs",
+      "import": "./dist/rollup.js"
+    },
+    "./rolldown": {
+      "require": "./dist/rolldown.cjs",
+      "import": "./dist/rolldown.js"
+    },
+    "./esbuild": {
+      "require": "./dist/esbuild.cjs",
+      "import": "./dist/esbuild.js"
+    },
+    "./api": {
+      "require": "./dist/api.cjs",
+      "import": "./dist/api.js"
+    },
+    "./*": [
+      "./*",
+      "./*.d.ts"
+    ]
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./dist/*",
+        "./*"
+      ]
+    }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "lint": "eslint --cache .",
+    "lint:fix": "pnpm run lint --fix",
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "test": "vitest",
+    "typecheck": "tsc --noEmit",
+    "release": "bumpp && pnpm publish",
+    "prepublishOnly": "pnpm run build"
+  },
+  "dependencies": {
+    "@rollup/pluginutils": "^5.1.0",
+    "js-tokens": "^9.0.0",
+    "pkg-types": "^1.2.0",
+    "unplugin": "^1.12.2"
+  },
+  "devDependencies": {
+    "@sxzz/eslint-config": "^4.1.0",
+    "@sxzz/prettier-config": "^2.0.2",
+    "@sxzz/test-utils": "^0.2.1",
+    "@types/node": "^22.5.1",
+    "bumpp": "^9.5.2",
+    "escape-string-regexp": "^5.0.0",
+    "eslint": "^9.9.1",
+    "prettier": "^3.3.3",
+    "tsup": "^8.2.4",
+    "tsx": "^4.19.0",
+    "typescript": "^5.5.4",
+    "vite": "^5.4.2",
+    "vitest": "^2.0.5"
+  },
+  "engines": {
+    "node": ">=18.12.0"
+  },
+  "prettier": "@sxzz/prettier-config"
+}
