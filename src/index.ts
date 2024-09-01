@@ -26,6 +26,7 @@ const plugin: UnpluginInstance<Options | undefined, false> = createUnplugin(
         const pkg = await readPackageJSON(pkgPath)
         const dependencies = Object.keys(pkg.dependencies || {})
         for (const dep of dependencies) {
+          if (options.ignore.includes(dep)) continue
           deps.add(dep)
           depsRegex[dep] = new RegExp(`["']${escapeStringRegexp(dep)}['"\\/]`)
         }

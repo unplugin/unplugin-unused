@@ -4,6 +4,7 @@ export interface Options {
   root?: string
   include?: FilterPattern
   exclude?: FilterPattern
+  ignore?: string[]
   /**
    * @default 'warning'
    */
@@ -21,6 +22,7 @@ export function resolveOptions(options: Options): OptionsResolved {
   return {
     include: options.include || [/\.([cm]?[jt]sx?|vue)$/],
     exclude: options.exclude || [/node_modules/],
+    ignore: options.ignore || [],
     level: options.level || 'warning',
   }
 }

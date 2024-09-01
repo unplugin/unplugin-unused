@@ -17,6 +17,7 @@ Unused({
   include: [/\.([cm]?[jt]sx?|vue)$/],
   exclude: [/node_modules/],
   level: 'warning', // or 'error'
+  ignore: ['vue'],
 })
 ```
 
