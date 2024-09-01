@@ -1,8 +1,9 @@
+import path from 'node:path'
 import process from 'node:process'
 import { createFilter } from '@rollup/pluginutils'
 import escapeStringRegexp from 'escape-string-regexp'
 import jsTokens from 'js-tokens'
-import { readPackageJSON } from 'pkg-types'
+import { readPackageJSON, resolvePackageJSON } from 'pkg-types'
 import { createUnplugin, type UnpluginInstance } from 'unplugin'
 import { resolveOptions, type Options } from './core/options'
 
@@ -12,6 +13,7 @@ const plugin: UnpluginInstance<Options | undefined, false> = createUnplugin(
     const filter = createFilter(options.include, options.exclude)
     const deps = new Set<string>()
     const depsRegex: Record<string, RegExp> = {}
+    let pkgPath: string
 
     const name = 'unplugin-unused'
     return {
@@ -20,7 +22,8 @@ const plugin: UnpluginInstance<Options | undefined, false> = createUnplugin(
 
       async buildStart() {
         options.root ||= process.cwd()
-        const pkg = await readPackageJSON(options.root)
+        pkgPath = path.resolve(await resolvePackageJSON(options.root))
+        const pkg = await readPackageJSON(pkgPath)
         const dependencies = Object.keys(pkg.dependencies || {})
         for (const dep of dependencies) {
           deps.add(dep)
@@ -49,7 +52,7 @@ const plugin: UnpluginInstance<Options | undefined, false> = createUnplugin(
       buildEnd() {
         if (deps.size) {
           const error = new Error(
-            `Unused dependencies found: ${Array.from(deps).join(', ')}`,
+            `Unused dependencies found!\nDependencies: ${Array.from(deps).join(', ')}\nYou can remove them from ${pkgPath}`,
           )
           if (options.level === 'error') {
             throw error

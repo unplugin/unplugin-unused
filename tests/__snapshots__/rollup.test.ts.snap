@@ -12,10 +12,26 @@ export { basic as default };
 "
 `;
 
-exports[`rollup > error.js 1`] = `[Error: Unused dependencies found: js-tokens]`;
+exports[`rollup > error.js 1`] = `
+[Error: Unused dependencies found!
+Dependencies: js-tokens
+You can remove them from #CWD#/package.json]
+`;
 
-exports[`rollup > error-comment.js 1`] = `[Error: Unused dependencies found: @rollup/pluginutils, js-tokens, pkg-types]`;
+exports[`rollup > error-comment.js 1`] = `
+[Error: Unused dependencies found!
+Dependencies: @rollup/pluginutils, js-tokens, pkg-types
+You can remove them from #CWD#/package.json]
+`;
 
-exports[`rollup > error-tsx.tsx 1`] = `[Error: Unused dependencies found: unplugin]`;
+exports[`rollup > error-tsx.tsx 1`] = `
+[Error: Unused dependencies found!
+Dependencies: unplugin
+You can remove them from #CWD#/package.json]
+`;
 
-exports[`rollup > error-vue.vue 1`] = `[Error: Unused dependencies found: @rollup/pluginutils, js-tokens, pkg-types]`;
+exports[`rollup > error-vue.vue 1`] = `
+[Error: Unused dependencies found!
+Dependencies: @rollup/pluginutils, js-tokens, pkg-types
+You can remove them from #CWD#/package.json]
+`;
