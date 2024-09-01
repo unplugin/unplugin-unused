@@ -14,6 +14,8 @@ export { basic as default };
 
 exports[`rollup > error.js 1`] = `[Error: Unused dependencies found: js-tokens]`;
 
+exports[`rollup > error-comment.js 1`] = `[Error: Unused dependencies found: @rollup/pluginutils, js-tokens, pkg-types]`;
+
 exports[`rollup > error-tsx.tsx 1`] = `[Error: Unused dependencies found: unplugin]`;
 
 exports[`rollup > error-vue.vue 1`] = `[Error: Unused dependencies found: @rollup/pluginutils, js-tokens, pkg-types]`;

@@ -34,7 +34,8 @@ const plugin: UnpluginInstance<Options | undefined, false> = createUnplugin(
 
       transform(code, id): undefined {
         const tokens = jsTokens(code, { jsx: /\.[jt]sx?$/.test(id) })
-        for (const { value } of tokens) {
+        for (const { type, value } of tokens) {
+          if (type.endsWith('Comment')) continue
           for (const dep of deps) {
             const regex = depsRegex[dep]
             if (regex.test(value)) {
