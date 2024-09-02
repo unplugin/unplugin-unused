@@ -6,6 +6,7 @@ var basic = \`import '@rollup/pluginutils'
 import 'js-tokens'
 import 'pkg-types'
 import 'unplugin'
+import 'picocolors'
 \`;
 
 export { basic as default };
@@ -13,25 +14,41 @@ export { basic as default };
 `;
 
 exports[`rollup > error.js 1`] = `
-[Error: Unused dependencies found!
-Dependencies: js-tokens
+[Error: Unused [36m2[39m dependencies found: 
+
+[33m-[39m [1mjs-tokens[22m
+[33m-[39m [1mpicocolors[22m
+
 You can remove them from #CWD#/package.json]
 `;
 
 exports[`rollup > error-comment.js 1`] = `
-[Error: Unused dependencies found!
-Dependencies: @rollup/pluginutils, js-tokens, pkg-types
+[Error: Unused [36m4[39m dependencies found: 
+
+[33m-[39m [1m@rollup/pluginutils[22m
+[33m-[39m [1mjs-tokens[22m
+[33m-[39m [1mpicocolors[22m
+[33m-[39m [1mpkg-types[22m
+
 You can remove them from #CWD#/package.json]
 `;
 
 exports[`rollup > error-tsx.tsx 1`] = `
-[Error: Unused dependencies found!
-Dependencies: unplugin
+[Error: Unused [36m2[39m dependencies found: 
+
+[33m-[39m [1mpicocolors[22m
+[33m-[39m [1munplugin[22m
+
 You can remove them from #CWD#/package.json]
 `;
 
 exports[`rollup > error-vue.vue 1`] = `
-[Error: Unused dependencies found!
-Dependencies: @rollup/pluginutils, js-tokens, pkg-types
+[Error: Unused [36m4[39m dependencies found: 
+
+[33m-[39m [1m@rollup/pluginutils[22m
+[33m-[39m [1mjs-tokens[22m
+[33m-[39m [1mpicocolors[22m
+[33m-[39m [1mpkg-types[22m
+
 You can remove them from #CWD#/package.json]
 `;

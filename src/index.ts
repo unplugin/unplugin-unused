@@ -3,6 +3,7 @@ import process from 'node:process'
 import { createFilter } from '@rollup/pluginutils'
 import escapeStringRegexp from 'escape-string-regexp'
 import jsTokens from 'js-tokens'
+import pc from 'picocolors'
 import { readPackageJSON, resolvePackageJSON } from 'pkg-types'
 import { createUnplugin, type UnpluginInstance } from 'unplugin'
 import { resolveOptions, type Options } from './core/options'
@@ -55,11 +56,14 @@ const plugin: UnpluginInstance<Options | undefined, false> = createUnplugin(
 
       buildEnd() {
         if (deps.size) {
-          const error = new Error(
-            `\u001B[0m\nUnused ${deps.size} dependencies found!
-\nDependencies:\n${Array.from(deps).map(dep => '\u001B[1m\u001B[35m' + dep + '\u001B[22m\u001B[39m').join(", ")}\n
-You can remove them from ${pkgPath}\n`
-          )
+          const message =
+            `Unused ${pc.cyan(deps.size)} dependencies found: \n\n` +
+            `${Array.from(deps)
+              .map((dep) => `${pc.yellow('-')} ${pc.bold(dep)}`)
+              .join('\n')}\n\n` +
+            `You can remove them from ${pkgPath}`
+
+          const error = new Error(message)
           if (options.level === 'error') {
             throw error
           } else {
