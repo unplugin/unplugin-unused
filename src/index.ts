@@ -56,7 +56,9 @@ const plugin: UnpluginInstance<Options | undefined, false> = createUnplugin(
       buildEnd() {
         if (deps.size) {
           const error = new Error(
-            `Unused dependencies found!\nDependencies: ${Array.from(deps).join(', ')}\nYou can remove them from ${pkgPath}`,
+            `\u001B[0m\nUnused ${deps.size} dependencies found!
+\nDependencies:\n${Array.from(deps).map(dep => '\u001B[1m\u001B[35m' + dep + '\u001B[22m\u001B[39m').join(", ")}\n
+You can remove them from ${pkgPath}\n`
           )
           if (options.level === 'error') {
             throw error
