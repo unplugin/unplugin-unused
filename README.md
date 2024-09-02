@@ -17,7 +17,14 @@ Unused({
   include: [/\.([cm]?[jt]sx?|vue)$/],
   exclude: [/node_modules/],
   level: 'warning', // or 'error'
+  /**
+   * Ignore some dependencies.
+   */
   ignore: ['vue'],
+  /**
+   * Dependency kinds to check.
+   */
+  depKinds: ['dependencies', 'peerDependencies'],
 })
 ```
 

@@ -9,6 +9,10 @@ export interface Options {
    * @default 'warning'
    */
   level?: 'warning' | 'error'
+  /**
+   * @default ['dependencies', 'peerDependencies']
+   */
+  depKinds?: Array<'dependencies' | 'devDependencies' | 'peerDependencies'>
 }
 
 type Overwrite<T, U> = Pick<T, Exclude<keyof T, keyof U>> & U
@@ -24,5 +28,6 @@ export function resolveOptions(options: Options): OptionsResolved {
     exclude: options.exclude || [/node_modules/],
     ignore: options.ignore || [],
     level: options.level || 'warning',
+    depKinds: options.depKinds || ['dependencies', 'peerDependencies'],
   }
 }

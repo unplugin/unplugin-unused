@@ -24,11 +24,14 @@ const plugin: UnpluginInstance<Options | undefined, false> = createUnplugin(
         options.root ||= process.cwd()
         pkgPath = path.resolve(await resolvePackageJSON(options.root))
         const pkg = await readPackageJSON(pkgPath)
-        const dependencies = Object.keys(pkg.dependencies || {})
-        for (const dep of dependencies) {
-          if (options.ignore.includes(dep)) continue
-          deps.add(dep)
-          depsRegex[dep] = new RegExp(`["']${escapeStringRegexp(dep)}['"\\/]`)
+
+        for (const kind of options.depKinds) {
+          const dependencies = Object.keys(pkg[kind] || {})
+          for (const dep of dependencies) {
+            if (options.ignore.includes(dep) || deps.has(dep)) continue
+            deps.add(dep)
+            depsRegex[dep] = new RegExp(`["']${escapeStringRegexp(dep)}['"\\/]`)
+          }
         }
       },
 
