@@ -31,7 +31,7 @@ const plugin: UnpluginInstance<Options | undefined, false> = createUnplugin(
           for (const dep of dependencies) {
             const ignore = Array.isArray(options.ignore)
               ? options.ignore
-              : options.ignore[kind]
+              : options.ignore[kind] || []
             if (ignore.includes(dep) || deps.has(dep)) continue
             deps.add(dep)
             depsRegex[dep] = new RegExp(`["']${escapeStringRegexp(dep)}['"\\/]`)

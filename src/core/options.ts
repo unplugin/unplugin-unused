@@ -6,7 +6,7 @@ export interface Options {
   root?: string
   include?: FilterPattern
   exclude?: FilterPattern
-  ignore?: string[] | Record<DepKind, string[]>
+  ignore?: string[] | Partial<Record<DepKind, string[]>>
   /**
    * @default 'warning'
    */
