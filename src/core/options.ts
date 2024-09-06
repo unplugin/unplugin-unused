@@ -1,10 +1,12 @@
 import type { FilterPattern } from '@rollup/pluginutils'
 
+export type DepKind = 'dependencies' | 'devDependencies' | 'peerDependencies'
+
 export interface Options {
   root?: string
   include?: FilterPattern
   exclude?: FilterPattern
-  ignore?: string[]
+  ignore?: string[] | Record<DepKind, string[]>
   /**
    * @default 'warning'
    */
@@ -12,7 +14,7 @@ export interface Options {
   /**
    * @default ['dependencies', 'peerDependencies']
    */
-  depKinds?: Array<'dependencies' | 'devDependencies' | 'peerDependencies'>
+  depKinds?: Array<DepKind>
 }
 
 type Overwrite<T, U> = Pick<T, Exclude<keyof T, keyof U>> & U

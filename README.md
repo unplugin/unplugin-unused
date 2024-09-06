@@ -20,7 +20,12 @@ Unused({
   /**
    * Ignore some dependencies.
    */
-  ignore: ['vue'],
+  ignore: {
+    peerDependencies: ['vue'],
+  },
+  // Or ignore all kinds of dependencies.
+  // ignore: ['vue'],
+
   /**
    * Dependency kinds to check.
    */
