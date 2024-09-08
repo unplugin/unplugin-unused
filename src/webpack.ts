@@ -1,3 +1,3 @@
-import unplugin from './index'
+import { Unused } from './index'
 
-export default unplugin.webpack as typeof unplugin.webpack
+export default Unused.webpack as typeof Unused.webpack

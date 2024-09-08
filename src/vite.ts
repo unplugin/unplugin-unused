@@ -1,3 +1,3 @@
-import unplugin from './index'
+import { Unused } from './index'
 
-export default unplugin.vite as typeof unplugin.vite
+export default Unused.vite as typeof Unused.vite

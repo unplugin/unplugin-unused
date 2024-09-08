@@ -1,3 +1,3 @@
-import unplugin from './index'
+import { Unused } from './index'
 
-export default unplugin.rollup as typeof unplugin.rollup
+export default Unused.rollup as typeof Unused.rollup

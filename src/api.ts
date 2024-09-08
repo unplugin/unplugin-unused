@@ -1,1 +1,1 @@
-export { resolveOptions, type DepKind, type Options } from './core/options'
+export { resolveOptions } from './core/options'

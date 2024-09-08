@@ -6,10 +6,12 @@ import jsTokens from 'js-tokens'
 import pc from 'picocolors'
 import { readPackageJSON, resolvePackageJSON } from 'pkg-types'
 import { createUnplugin, type UnpluginInstance } from 'unplugin'
-import { resolveOptions, type Options } from './core/options'
+import { resolveOptions, type DepKind, type Options } from './core/options'
 
-const plugin: UnpluginInstance<Options | undefined, false> = createUnplugin(
-  (rawOptions = {}) => {
+export type { DepKind, Options }
+
+export const Unused: UnpluginInstance<Options | undefined, false> =
+  createUnplugin((rawOptions = {}) => {
     const options = resolveOptions(rawOptions)
     const filter = createFilter(options.include, options.exclude)
     const deps = new Set<string>()
@@ -81,7 +83,4 @@ const plugin: UnpluginInstance<Options | undefined, false> = createUnplugin(
         },
       },
     }
-  },
-)
-
-export default plugin
+  })

@@ -1,3 +1,3 @@
-import unplugin from './index'
+import { Unused } from './index'
 
-export default unplugin.rspack as typeof unplugin.rspack
+export default Unused.rspack as typeof Unused.rspack

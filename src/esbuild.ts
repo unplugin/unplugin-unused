@@ -1,3 +1,3 @@
-import unplugin from './index'
+import { Unused } from './index'
 
-export default unplugin.esbuild as typeof unplugin.esbuild
+export default Unused.esbuild as typeof Unused.esbuild
