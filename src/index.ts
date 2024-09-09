@@ -19,7 +19,7 @@ export const Unused: UnpluginInstance<Options | undefined, false> =
     const options = resolveOptions(rawOptions)
     const filter = createFilter(options.include, options.exclude)
     const depsRegex: Record<string, RegExp> = {}
-    const depsState = new Map<object, Set<string>>()
+    const depsState = new WeakMap<object, Set<string>>()
     let pkgPath: string
     const defaultKey: object = {}
 
@@ -71,7 +71,7 @@ export const Unused: UnpluginInstance<Options | undefined, false> =
 
       transform(code, id): undefined {
         const tokens = jsTokens(code, { jsx: /\.[jt]sx?$/.test(id) })
-        const deps = depsState.get(getBuildId(this))!
+        const deps = depsState.get(getBuildId(this)) || new Set()
         for (const { type, value } of tokens) {
           if (type.endsWith('Comment')) continue
           for (const dep of deps) {
@@ -86,9 +86,8 @@ export const Unused: UnpluginInstance<Options | undefined, false> =
 
       buildEnd() {
         const id = getBuildId(this)
-        const deps = depsState.get(id)!
-        depsState.delete(id)
-        if (deps.size) {
+        const deps = depsState.get(id)
+        if (deps?.size) {
           const message =
             `Unused ${pc.cyan(deps.size)} dependencies found: \n\n` +
             `${Array.from(deps)
