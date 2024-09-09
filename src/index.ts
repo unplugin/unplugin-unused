@@ -5,7 +5,11 @@ import escapeStringRegexp from 'escape-string-regexp'
 import jsTokens from 'js-tokens'
 import pc from 'picocolors'
 import { readPackageJSON, resolvePackageJSON } from 'pkg-types'
-import { createUnplugin, type UnpluginInstance } from 'unplugin'
+import {
+  createUnplugin,
+  type UnpluginBuildContext,
+  type UnpluginInstance,
+} from 'unplugin'
 import { resolveOptions, type DepKind, type Options } from './core/options'
 
 export type { DepKind, Options }
@@ -14,9 +18,25 @@ export const Unused: UnpluginInstance<Options | undefined, false> =
   createUnplugin((rawOptions = {}) => {
     const options = resolveOptions(rawOptions)
     const filter = createFilter(options.include, options.exclude)
-    const deps = new Set<string>()
     const depsRegex: Record<string, RegExp> = {}
+    const depsState = new Map<object, Set<string>>()
     let pkgPath: string
+    const defaultKey: object = {}
+
+    function getBuildId(context: UnpluginBuildContext): object {
+      const native = context.getNativeBuildContext?.()
+      if (!native) return defaultKey
+      if (native.framework === 'esbuild') {
+        return native.build
+      }
+      if (native.framework === 'rspack' || native.framework === 'webpack') {
+        return native.compiler
+      }
+      if (native.framework === 'farm') {
+        return native.context
+      }
+      return defaultKey
+    }
 
     const name = 'unplugin-unused'
     return {
@@ -28,6 +48,7 @@ export const Unused: UnpluginInstance<Options | undefined, false> =
         pkgPath = path.resolve(await resolvePackageJSON(options.root))
         const pkg = await readPackageJSON(pkgPath)
 
+        const deps = new Set<string>()
         for (const kind of options.depKinds) {
           const dependencies = Object.keys(pkg[kind] || {})
           for (const dep of dependencies) {
@@ -39,6 +60,9 @@ export const Unused: UnpluginInstance<Options | undefined, false> =
             depsRegex[dep] = new RegExp(`["']${escapeStringRegexp(dep)}['"\\/]`)
           }
         }
+
+        const buildId = getBuildId(this)
+        depsState.set(buildId, deps)
       },
 
       transformInclude(id) {
@@ -47,6 +71,7 @@ export const Unused: UnpluginInstance<Options | undefined, false> =
 
       transform(code, id): undefined {
         const tokens = jsTokens(code, { jsx: /\.[jt]sx?$/.test(id) })
+        const deps = depsState.get(getBuildId(this))!
         for (const { type, value } of tokens) {
           if (type.endsWith('Comment')) continue
           for (const dep of deps) {
@@ -60,6 +85,9 @@ export const Unused: UnpluginInstance<Options | undefined, false> =
       },
 
       buildEnd() {
+        const id = getBuildId(this)
+        const deps = depsState.get(id)!
+        depsState.delete(id)
         if (deps.size) {
           const message =
             `Unused ${pc.cyan(deps.size)} dependencies found: \n\n` +
