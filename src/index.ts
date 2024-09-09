@@ -78,6 +78,7 @@ export const Unused: UnpluginInstance<Options | undefined, false> =
       },
 
       vite: {
+        apply: 'build',
         configResolved(config) {
           options.root ||= config.root
         },
