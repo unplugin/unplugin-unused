@@ -95,11 +95,11 @@
     "unplugin": "^1.15.0"
   },
   "devDependencies": {
-    "@sxzz/eslint-config": "^4.4.0",
+    "@sxzz/eslint-config": "^4.4.1",
     "@sxzz/prettier-config": "^2.0.2",
     "@sxzz/test-utils": "^0.3.2",
-    "@types/node": "^22.8.7",
-    "bumpp": "^9.8.0",
+    "@types/node": "^22.9.0",
+    "bumpp": "^9.8.1",
     "escape-string-regexp": "^5.0.0",
     "eslint": "^9.14.0",
     "prettier": "^3.3.3",
