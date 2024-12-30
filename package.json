@@ -1,6 +1,6 @@
 {
   "name": "unplugin-unused",
-  "version": "0.2.3",
+  "version": "0.3.0",
   "packageManager": "pnpm@9.15.1",
   "description": "Check unused dependencies.",
   "type": "module",
