@@ -1,7 +1,7 @@
 {
   "name": "unplugin-unused",
   "version": "0.3.0",
-  "packageManager": "pnpm@9.15.1",
+  "packageManager": "pnpm@9.15.2",
   "description": "Check unused dependencies.",
   "type": "module",
   "keywords": [
@@ -92,7 +92,7 @@
     "js-tokens": "^9.0.1",
     "picocolors": "^1.1.1",
     "pkg-types": "^1.3.0",
-    "unplugin": "^2.1.0"
+    "unplugin": "^2.1.2"
   },
   "devDependencies": {
     "@sxzz/eslint-config": "^4.5.1",
