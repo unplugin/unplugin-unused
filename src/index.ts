@@ -1,6 +1,5 @@
 import path from 'node:path'
 import process from 'node:process'
-import { createFilter } from '@rollup/pluginutils'
 import escapeStringRegexp from 'escape-string-regexp'
 import jsTokens from 'js-tokens'
 import pc from 'picocolors'
@@ -10,6 +9,7 @@ import {
   type UnpluginBuildContext,
   type UnpluginInstance,
 } from 'unplugin'
+import { createFilter } from 'unplugin-utils'
 import { resolveOptions, type DepKind, type Options } from './core/options'
 
 export type { DepKind, Options }

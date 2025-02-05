@@ -1,3 +1,3 @@
-import '@rollup/pluginutils'
+import 'unplugin-utils'
 import 'pkg-types'
 import 'unplugin'
