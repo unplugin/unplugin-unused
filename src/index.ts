@@ -91,14 +91,16 @@ export const Unused: UnpluginInstance<Options | undefined, false> =
           const message =
             `Unused ${pc.cyan(deps.size)} dependencies found: \n\n` +
             `${Array.from(deps)
-              .map((dep) => `${pc.yellow('-')} ${pc.bold(dep)}`)
+              .map((dep) => `- ${pc.bold(dep)}`)
               .join('\n')}\n\n` +
             `You can remove them from ${pkgPath}`
 
-          const error = new Error(message)
           if (options.level === 'error') {
-            throw error
+            console.error(pc.red(message))
+            const error = new Error(pc.red(message))
+            throw new Error(String(error))
           } else {
+            const error = new Error(pc.yellow(message))
             console.warn(error)
           }
         }
