@@ -96,9 +96,7 @@ export const Unused: UnpluginInstance<Options | undefined, false> =
             `You can remove them from ${pkgPath}`
 
           if (options.level === 'error') {
-            console.error(pc.red(message))
-            const error = new Error(pc.red(message))
-            throw new Error(String(error))
+            throw new Error(String(pc.red(message)))
           } else {
             const error = new Error(pc.yellow(message))
             console.warn(error)
