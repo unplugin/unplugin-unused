@@ -71,16 +71,16 @@
     "@sxzz/eslint-config": "^5.1.1",
     "@sxzz/prettier-config": "^2.2.0",
     "@sxzz/test-utils": "^0.5.1",
-    "@types/node": "^22.13.4",
+    "@types/node": "^22.13.5",
     "bumpp": "^10.0.3",
     "escape-string-regexp": "^5.0.0",
-    "eslint": "^9.20.1",
+    "eslint": "^9.21.0",
     "prettier": "^3.5.1",
-    "tsdown": "^0.5.9",
-    "tsx": "^4.19.2",
+    "tsdown": "^0.6.0",
+    "tsx": "^4.19.3",
     "typescript": "^5.7.3",
-    "vite": "^6.1.0",
-    "vitest": "^3.0.5"
+    "vite": "^6.1.1",
+    "vitest": "^3.0.6"
   },
   "engines": {
     "node": ">=18.12.0"
