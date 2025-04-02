@@ -15,6 +15,14 @@ describe('rollup', async () => {
     async (args, id) => {
       try {
         const { snapshot } = await rollupBuild(id, [
+          id.includes('early-error')
+            ? {
+                name: 'rollup-plugin-early-error',
+                transform() {
+                  this.error(new Error('Early error'))
+                },
+              }
+            : false,
           UnpluginUnused({
             level: 'error',
           }),

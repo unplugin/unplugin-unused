@@ -84,7 +84,11 @@ export const Unused: UnpluginInstance<Options | undefined, false> =
         }
       },
 
-      buildEnd() {
+      buildEnd(...args: any[]) {
+        const hasError = !!args[0]
+        // already has error
+        if (hasError) return
+
         const id = getBuildId(this)
         const deps = depsState.get(id)
         if (deps?.size) {

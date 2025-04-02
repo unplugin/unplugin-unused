@@ -13,6 +13,8 @@ export { basic as default };
 "
 `;
 
+exports[`rollup > early-error.js 1`] = `[Error: Early error]`;
+
 exports[`rollup > error.js 1`] = `
 [Error: Unused 2 dependencies found: 
 
