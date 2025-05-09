@@ -25,12 +25,11 @@ You can remove them from #CWD#/package.json]
 `;
 
 exports[`rollup > error-comment.js 1`] = `
-[Error: Unused 4 dependencies found: 
+[Error: Unused 3 dependencies found: 
 
 - js-tokens
 - picocolors
 - pkg-types
-- unplugin-utils
 
 You can remove them from #CWD#/package.json]
 `;
@@ -45,12 +44,11 @@ You can remove them from #CWD#/package.json]
 `;
 
 exports[`rollup > error-vue.vue 1`] = `
-[Error: Unused 4 dependencies found: 
+[Error: Unused 3 dependencies found: 
 
 - js-tokens
 - picocolors
 - pkg-types
-- unplugin-utils
 
 You can remove them from #CWD#/package.json]
 `;
