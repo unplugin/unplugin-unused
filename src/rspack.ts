@@ -4,7 +4,7 @@
  * @module
  */
 
-import { Unused } from './index'
+import { Unused } from './index.ts'
 
 /**
  * Rspack plugin

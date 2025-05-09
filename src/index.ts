@@ -9,7 +9,7 @@ import {
   type UnpluginBuildContext,
   type UnpluginInstance,
 } from 'unplugin'
-import { resolveOptions, type DepKind, type Options } from './core/options'
+import { resolveOptions, type DepKind, type Options } from './core/options.ts'
 
 export type { DepKind, Options }
 

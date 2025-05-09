@@ -6,7 +6,7 @@ import {
   testFixtures,
 } from '@sxzz/test-utils'
 import { describe } from 'vitest'
-import UnpluginUnused from '../src/rollup'
+import UnpluginUnused from '../src/rollup.ts'
 
 describe('rollup', async () => {
   const { dirname } = import.meta

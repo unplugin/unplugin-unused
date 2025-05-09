@@ -1,1 +1,1 @@
-export { resolveOptions } from './core/options'
+export { resolveOptions } from './core/options.ts'
