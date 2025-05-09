@@ -1,4 +1,4 @@
-import type { FilterPattern } from 'unplugin-utils'
+import type { FilterPattern } from 'unplugin'
 
 export type DepKind = 'dependencies' | 'devDependencies' | 'peerDependencies'
 

@@ -9,7 +9,6 @@ import {
   type UnpluginBuildContext,
   type UnpluginInstance,
 } from 'unplugin'
-import { createFilter } from 'unplugin-utils'
 import { resolveOptions, type DepKind, type Options } from './core/options'
 
 export type { DepKind, Options }
@@ -17,7 +16,6 @@ export type { DepKind, Options }
 export const Unused: UnpluginInstance<Options | undefined, false> =
   createUnplugin((rawOptions = {}) => {
     const options = resolveOptions(rawOptions)
-    const filter = createFilter(options.include, options.exclude)
     const depsRegex: Record<string, RegExp> = {}
     const depsState = new WeakMap<object, Set<string>>()
     let pkgPath: string
@@ -65,23 +63,27 @@ export const Unused: UnpluginInstance<Options | undefined, false> =
         depsState.set(buildId, deps)
       },
 
-      transformInclude(id) {
-        return filter(id)
-      },
-
-      transform(code, id): undefined {
-        const tokens = jsTokens(code, { jsx: /\.[jt]sx?$/.test(id) })
-        const deps = depsState.get(getBuildId(this)) || new Set()
-        for (const { type, value } of tokens) {
-          if (type.endsWith('Comment')) continue
-          for (const dep of deps) {
-            const regex = depsRegex[dep]
-            if (regex.test(value)) {
-              deps.delete(dep)
-              break
+      transform: {
+        filter: {
+          id: {
+            include: options.include,
+            exclude: options.exclude,
+          },
+        },
+        handler(code, id): undefined {
+          const tokens = jsTokens(code, { jsx: /\.[jt]sx?$/.test(id) })
+          const deps = depsState.get(getBuildId(this)) || new Set()
+          for (const { type, value } of tokens) {
+            if (type.endsWith('Comment')) continue
+            for (const dep of deps) {
+              const regex = depsRegex[dep]
+              if (regex.test(value)) {
+                deps.delete(dep)
+                break
+              }
             }
           }
-        }
+        },
       },
 
       buildEnd(...args: any[]) {

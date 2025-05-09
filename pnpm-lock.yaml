@@ -20,9 +20,6 @@ importers:
       unplugin:
         specifier: ^2.3.2
         version: 2.3.2
-      unplugin-utils:
-        specifier: ^0.2.4
-        version: 0.2.4
     devDependencies:
       '@sxzz/eslint-config':
         specifier: ^7.0.0
