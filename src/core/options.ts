@@ -1,3 +1,4 @@
+import process from 'node:process'
 import type { FilterPattern } from 'unplugin'
 
 export type DepKind = 'dependencies' | 'devDependencies' | 'peerDependencies'
@@ -31,5 +32,6 @@ export function resolveOptions(options: Options): OptionsResolved {
     ignore: options.ignore || [],
     level: options.level || 'warning',
     depKinds: options.depKinds || ['dependencies', 'peerDependencies'],
+    root: options.root || process.cwd(),
   }
 }
