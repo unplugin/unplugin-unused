@@ -1,5 +1,4 @@
 import path from 'node:path'
-import process from 'node:process'
 import escapeStringRegexp from 'escape-string-regexp'
 import jsTokens from 'js-tokens'
 import pc from 'picocolors'
@@ -42,7 +41,6 @@ export const Unused: UnpluginInstance<Options | undefined, false> =
       enforce: 'pre',
 
       async buildStart() {
-        options.root ||= process.cwd()
         pkgPath = path.resolve(await resolvePackageJSON(options.root))
         const pkg = await readPackageJSON(pkgPath)
 
