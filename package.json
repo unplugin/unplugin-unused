@@ -64,21 +64,21 @@
     "js-tokens": "^9.0.1",
     "picocolors": "^1.1.1",
     "pkg-types": "^2.2.0",
-    "unplugin": "^2.3.5"
+    "unplugin": "^2.3.6"
   },
   "devDependencies": {
     "@sxzz/eslint-config": "^7.1.2",
     "@sxzz/prettier-config": "^2.2.3",
     "@sxzz/test-utils": "^0.5.9",
-    "@types/node": "^22.17.1",
-    "bumpp": "^10.2.2",
+    "@types/node": "^24.3.0",
+    "bumpp": "^10.2.3",
     "escape-string-regexp": "^5.0.0",
     "eslint": "^9.33.0",
     "prettier": "^3.6.2",
-    "tsdown": "^0.14.0",
-    "tsx": "^4.20.3",
+    "tsdown": "^0.14.1",
+    "tsx": "^4.20.4",
     "typescript": "^5.9.2",
-    "vite": "^7.1.1",
+    "vite": "^7.1.2",
     "vitest": "^3.2.4"
   },
   "engines": {
