@@ -1,7 +1,7 @@
 {
   "name": "unplugin-unused",
   "version": "0.5.3",
-  "packageManager": "pnpm@10.17.0",
+  "packageManager": "pnpm@10.17.1",
   "description": "Check unused dependencies.",
   "type": "module",
   "keywords": [
@@ -67,7 +67,7 @@
     "unplugin": "^2.3.10"
   },
   "devDependencies": {
-    "@sxzz/eslint-config": "^7.1.4",
+    "@sxzz/eslint-config": "^7.2.6",
     "@sxzz/prettier-config": "^2.2.4",
     "@sxzz/test-utils": "^0.5.11",
     "@types/node": "^24.5.2",
@@ -75,10 +75,10 @@
     "escape-string-regexp": "^5.0.0",
     "eslint": "^9.36.0",
     "prettier": "^3.6.2",
-    "tsdown": "^0.15.4",
-    "tsx": "^4.20.5",
+    "tsdown": "^0.15.5",
+    "tsx": "^4.20.6",
     "typescript": "^5.9.2",
-    "vite": "^7.1.6",
+    "vite": "^7.1.7",
     "vitest": "^3.2.4"
   },
   "engines": {
