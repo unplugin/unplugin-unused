@@ -6,7 +6,6 @@ var basic = \`import 'unplugin-utils'
 import 'js-tokens'
 import 'pkg-types'
 import 'unplugin'
-import 'picocolors'
 \`;
 
 export { basic as default };
@@ -16,38 +15,34 @@ export { basic as default };
 exports[`rollup > early-error.js 1`] = `[Error: Early error]`;
 
 exports[`rollup > error.js 1`] = `
-[Error: Unused 2 dependencies found: 
+[Error: Unused 1 dependencies found: 
 
 - js-tokens
-- picocolors
 
 You can remove them from #CWD#/package.json]
 `;
 
 exports[`rollup > error-comment.js 1`] = `
-[Error: Unused 3 dependencies found: 
+[Error: Unused 2 dependencies found: 
 
 - js-tokens
-- picocolors
 - pkg-types
 
 You can remove them from #CWD#/package.json]
 `;
 
 exports[`rollup > error-tsx.tsx 1`] = `
-[Error: Unused 2 dependencies found: 
+[Error: Unused 1 dependencies found: 
 
-- picocolors
 - unplugin
 
 You can remove them from #CWD#/package.json]
 `;
 
 exports[`rollup > error-vue.vue 1`] = `
-[Error: Unused 3 dependencies found: 
+[Error: Unused 2 dependencies found: 
 
 - js-tokens
-- picocolors
 - pkg-types
 
 You can remove them from #CWD#/package.json]

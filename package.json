@@ -62,7 +62,6 @@
   },
   "dependencies": {
     "js-tokens": "^9.0.1",
-    "picocolors": "^1.1.1",
     "pkg-types": "^2.3.0",
     "unplugin": "^2.3.10"
   },
@@ -82,7 +81,7 @@
     "vitest": "^3.2.4"
   },
   "engines": {
-    "node": ">=20.18.0"
+    "node": ">=20.19.0"
   },
   "prettier": "@sxzz/prettier-config"
 }

@@ -1,7 +1,7 @@
 import path from 'node:path'
+import { styleText } from 'node:util'
 import escapeStringRegexp from 'escape-string-regexp'
 import jsTokens from 'js-tokens'
-import pc from 'picocolors'
 import { readPackageJSON, resolvePackageJSON } from 'pkg-types'
 import {
   createUnplugin,
@@ -93,16 +93,16 @@ export const Unused: UnpluginInstance<Options | undefined, false> =
         const deps = depsState.get(id)
         if (deps?.size) {
           const message =
-            `Unused ${pc.cyan(deps.size)} dependencies found: \n\n` +
+            `Unused ${styleText('cyan', String(deps.size))} dependencies found: \n\n` +
             `${Array.from(deps)
-              .map((dep) => `- ${pc.bold(dep)}`)
+              .map((dep) => `- ${styleText('bold', dep)}`)
               .join('\n')}\n\n` +
             `You can remove them from ${pkgPath}`
 
           if (options.level === 'error') {
-            throw new Error(String(pc.red(message)))
+            throw new Error(String(styleText('red', message)))
           } else {
-            const error = new Error(pc.yellow(message))
+            const error = new Error(styleText('yellow', message))
             console.warn(error)
           }
         }
