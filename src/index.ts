@@ -53,7 +53,10 @@ export const Unused: UnpluginInstance<Options | undefined, false> =
               : options.ignore[kind] || []
             if (ignore.includes(dep) || deps.has(dep)) continue
             deps.add(dep)
-            depsRegex[dep] = new RegExp(`["']${escapeStringRegexp(dep)}['"\\/]`)
+            // build regexp: /["']dep['"\/]/
+            depsRegex[dep] = new RegExp(
+              String.raw`["']${escapeStringRegexp(dep)}['"\/]`,
+            )
           }
         }
 
