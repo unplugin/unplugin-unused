@@ -9,4 +9,5 @@ export default defineConfig({
       level: 'error',
     }),
   ],
+  inlineOnly: [],
 })

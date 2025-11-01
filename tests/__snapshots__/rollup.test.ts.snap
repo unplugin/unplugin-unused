@@ -6,6 +6,7 @@ var basic = \`import 'unplugin-utils'
 import 'js-tokens'
 import 'pkg-types'
 import 'unplugin'
+import 'escape-string-regexp'
 \`;
 
 export { basic as default };
@@ -23,8 +24,9 @@ You can remove them from #CWD#/package.json]
 `;
 
 exports[`rollup > error-comment.js 1`] = `
-[Error: Unused 2 dependencies found: 
+[Error: Unused 3 dependencies found: 
 
+- escape-string-regexp
 - js-tokens
 - pkg-types
 
@@ -32,16 +34,18 @@ You can remove them from #CWD#/package.json]
 `;
 
 exports[`rollup > error-tsx.tsx 1`] = `
-[Error: Unused 1 dependencies found: 
+[Error: Unused 2 dependencies found: 
 
+- escape-string-regexp
 - unplugin
 
 You can remove them from #CWD#/package.json]
 `;
 
 exports[`rollup > error-vue.vue 1`] = `
-[Error: Unused 2 dependencies found: 
+[Error: Unused 3 dependencies found: 
 
+- escape-string-regexp
 - js-tokens
 - pkg-types
 
