@@ -70,7 +70,7 @@
     "@sxzz/eslint-config": "^7.2.8",
     "@sxzz/prettier-config": "^2.2.4",
     "@sxzz/test-utils": "^0.5.12",
-    "@types/node": "^24.9.2",
+    "@types/node": "^24.10.0",
     "bumpp": "^10.3.1",
     "eslint": "^9.39.0",
     "prettier": "^3.6.2",
