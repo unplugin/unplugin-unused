@@ -1,5 +1,5 @@
 // import 'unplugin-utils'
 // import 'js-tokens'
-// import 'pkg-types'
+// import 'empathic/package'
 // import 'escape-string-regexp'
 import 'unplugin'

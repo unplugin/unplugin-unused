@@ -7,6 +7,7 @@ import {
 } from '@sxzz/test-utils'
 import { describe } from 'vitest'
 import UnpluginUnused from '../src/rollup.ts'
+import type { Plugin } from 'rollup'
 
 describe('rollup', async () => {
   const { dirname } = import.meta
@@ -14,17 +15,20 @@ describe('rollup', async () => {
     '*.{js,tsx,vue}',
     async (args, id) => {
       try {
+        const EarlyError = id.includes('early-error')
+          ? ({
+              name: 'rollup-plugin-early-error',
+              transform() {
+                this.error(new Error('Early error'))
+              },
+            } satisfies Plugin)
+          : false
+
         const { snapshot } = await rollupBuild(id, [
-          id.includes('early-error')
-            ? {
-                name: 'rollup-plugin-early-error',
-                transform() {
-                  this.error(new Error('Early error'))
-                },
-              }
-            : false,
+          EarlyError,
           UnpluginUnused({
             level: 'error',
+            root: id.includes('error-root') ? '/does/not/exist' : undefined,
           }),
           RollupToStringPlugin(),
         ])

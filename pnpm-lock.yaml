@@ -8,15 +8,15 @@ importers:
 
   .:
     dependencies:
+      empathic:
+        specifier: ^2.0.0
+        version: 2.0.0
       escape-string-regexp:
         specifier: ^5.0.0
         version: 5.0.0
       js-tokens:
         specifier: ^9.0.1
         version: 9.0.1
-      pkg-types:
-        specifier: ^2.3.0
-        version: 2.3.0
       unplugin:
         specifier: ^2.3.10
         version: 2.3.10
@@ -42,6 +42,9 @@ importers:
       prettier:
         specifier: ^3.6.2
         version: 3.6.2
+      rollup:
+        specifier: ^4.52.5
+        version: 4.52.5
       tsdown:
         specifier: ^0.15.12
         version: 0.15.12(publint@0.3.3)(typescript@5.9.3)

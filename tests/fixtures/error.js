@@ -1,4 +1,4 @@
 import 'unplugin-utils'
-import 'pkg-types'
+import 'empathic/package'
 import 'unplugin'
 import 'escape-string-regexp'

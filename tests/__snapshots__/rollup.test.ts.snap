@@ -4,7 +4,7 @@ exports[`rollup > basic.js 1`] = `
 "// basic.js
 var basic = \`import 'unplugin-utils'
 import 'js-tokens'
-import 'pkg-types'
+import 'empathic/package'
 import 'unplugin'
 import 'escape-string-regexp'
 \`;
@@ -26,12 +26,14 @@ You can remove them from #CWD#/package.json]
 exports[`rollup > error-comment.js 1`] = `
 [Error: Unused 3 dependencies found: 
 
+- empathic
 - escape-string-regexp
 - js-tokens
-- pkg-types
 
 You can remove them from #CWD#/package.json]
 `;
+
+exports[`rollup > error-root.js 1`] = `[Error: Cannot find package.json from root: /does/not/exist]`;
 
 exports[`rollup > error-tsx.tsx 1`] = `
 [Error: Unused 2 dependencies found: 
@@ -45,9 +47,9 @@ You can remove them from #CWD#/package.json]
 exports[`rollup > error-vue.vue 1`] = `
 [Error: Unused 3 dependencies found: 
 
+- empathic
 - escape-string-regexp
 - js-tokens
-- pkg-types
 
 You can remove them from #CWD#/package.json]
 `;

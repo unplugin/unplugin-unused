@@ -1,8 +1,8 @@
-import path from 'node:path'
+import { readFile } from 'node:fs/promises'
 import { styleText } from 'node:util'
+import { up } from 'empathic/package'
 import escapeStringRegexp from 'escape-string-regexp'
 import jsTokens from 'js-tokens'
-import { readPackageJSON, resolvePackageJSON } from 'pkg-types'
 import {
   createUnplugin,
   type UnpluginBuildContext,
@@ -41,8 +41,12 @@ export const Unused: UnpluginInstance<Options | undefined, false> =
       enforce: 'pre',
 
       async buildStart() {
-        pkgPath = path.resolve(await resolvePackageJSON(options.root))
-        const pkg = await readPackageJSON(pkgPath)
+        const pkgJsonPath = up({ cwd: options.root })
+        if (!pkgJsonPath) {
+          throw new Error(`Cannot find package.json from root: ${options.root}`)
+        }
+        pkgPath = pkgJsonPath
+        const pkg = JSON.parse(await readFile(pkgPath, 'utf8'))
 
         const deps = new Set<string>()
         for (const kind of options.depKinds) {
