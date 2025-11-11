@@ -9,6 +9,12 @@ export interface Options {
   exclude?: FilterPattern
   ignore?: string[] | Partial<Record<DepKind, string[]>>
   /**
+   * The level of the check.
+   *
+   * Options:
+   * - `error`: fails the build
+   * - `warning`: shows a warning in the console
+   *
    * @default 'warning'
    */
   level?: 'warning' | 'error'
