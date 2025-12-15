@@ -63,7 +63,7 @@
   "dependencies": {
     "empathic": "^2.0.0",
     "escape-string-regexp": "^5.0.0",
-    "js-tokens": "^9.0.1",
+    "js-tokens": "^10.0.0",
     "unplugin": "^2.3.11"
   },
   "devDependencies": {
