@@ -1,13 +1,13 @@
-import { defineConfig } from 'tsdown'
+import { nodeLib } from 'tsdown-preset-sxzz'
 import Unused from './src/rolldown.ts'
 
-export default defineConfig({
-  entry: './src/*.ts',
-  exports: true,
-  plugins: [
-    Unused({
-      level: 'error',
-    }),
-  ],
-  inlineOnly: [],
-})
+export default nodeLib(
+  { entry: 'shallow' },
+  {
+    plugins: [
+      Unused({
+        level: 'error',
+      }),
+    ],
+  },
+)
