@@ -68,14 +68,14 @@
     "unplugin": "^3.0.0"
   },
   "devDependencies": {
-    "@sxzz/eslint-config": "^7.5.1",
-    "@sxzz/prettier-config": "^2.2.6",
+    "@sxzz/eslint-config": "^7.6.0",
+    "@sxzz/prettier-config": "^2.3.1",
     "@sxzz/test-utils": "^0.5.15",
-    "@types/node": "^25.0.10",
+    "@types/node": "^25.2.0",
     "bumpp": "^10.4.0",
     "eslint": "^9.39.2",
     "prettier": "^3.8.1",
-    "rollup": "^4.57.0",
+    "rollup": "^4.57.1",
     "tsdown": "^0.20.1",
     "tsdown-preset-sxzz": "^0.3.1",
     "typescript": "^5.9.3",
