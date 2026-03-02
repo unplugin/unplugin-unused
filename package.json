@@ -2,7 +2,7 @@
   "name": "unplugin-unused",
   "type": "module",
   "version": "0.5.7",
-  "packageManager": "pnpm@10.30.1",
+  "packageManager": "pnpm@10.30.3",
   "description": "Check unused dependencies.",
   "author": "Kevin Deng <sxzz@sxzz.moe>",
   "license": "MIT",
@@ -68,16 +68,16 @@
     "unplugin": "^3.0.0"
   },
   "devDependencies": {
-    "@sxzz/eslint-config": "^7.8.0",
+    "@sxzz/eslint-config": "^7.8.2",
     "@sxzz/prettier-config": "^2.3.1",
     "@sxzz/test-utils": "^0.5.15",
-    "@types/node": "^25.3.0",
+    "@types/node": "^25.3.3",
     "bumpp": "^10.4.1",
     "eslint": "^9.39.2",
     "prettier": "^3.8.1",
     "rollup": "^4.59.0",
     "tsdown": "^0.20.3",
-    "tsdown-preset-sxzz": "^0.3.3",
+    "tsdown-preset-sxzz": "^0.4.0",
     "typescript": "^5.9.3",
     "vite": "^7.3.1",
     "vitest": "^4.0.18"
