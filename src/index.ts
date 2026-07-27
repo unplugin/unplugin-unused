@@ -101,9 +101,9 @@ export const Unused: UnpluginInstance<Options | undefined, false> =
         if (deps?.size) {
           const message =
             `Unused ${styleText('cyan', String(deps.size))} dependencies found: \n\n` +
-            `${Array.from(deps)
-              .map((dep) => `- ${styleText('bold', dep)}`)
-              .join('\n')}\n\n` +
+            `${Array.from(deps, (dep) => `- ${styleText('bold', dep)}`).join(
+              '\n',
+            )}\n\n` +
             `You can remove them from ${pkgPath}`
 
           if (options.level === 'error') {
