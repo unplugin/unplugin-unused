@@ -1,7 +1,7 @@
 {
   "name": "unplugin-unused",
   "type": "module",
-  "version": "0.5.7",
+  "version": "0.6.0",
   "packageManager": "pnpm@11.17.0",
   "description": "Check unused dependencies.",
   "author": "Kevin Deng <sxzz@sxzz.moe>",
