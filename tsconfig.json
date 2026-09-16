@@ -3,8 +3,8 @@
     "target": "esnext",
     "lib": ["es2023"],
     "moduleDetection": "force",
-    "module": "NodeNext",
-    "moduleResolution": "NodeNext",
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
     "resolveJsonModule": true,
     "types": ["node"],
     "allowImportingTsExtensions": true,
@@ -16,6 +16,7 @@
     "isolatedDeclarations": true,
     "isolatedModules": true,
     "verbatimModuleSyntax": true,
+    "erasableSyntaxOnly": true,
     "skipLibCheck": true
   },
   "include": ["src", "tests"],

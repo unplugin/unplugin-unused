@@ -1,6 +1,3 @@
-allowBuilds:
-  esbuild: false
-
 minimumReleaseAge: 0
 shellEmulator: true
 trustLockfile: true
